@@ -1,0 +1,372 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="ERD-Sistem-Informasi-Persediaan" id="erd-sip">
+    <mxGraphModel dx="4548" dy="906" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="3000" pageHeight="2500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="users" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="USERS" vertex="1">
+          <mxGeometry height="60" width="200" x="100" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="users_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration=underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="30" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="users_name" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="name" vertex="1">
+          <mxGeometry height="40" width="80" x="100" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users_email" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="email" vertex="1">
+          <mxGeometry height="40" width="80" x="190" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="users_password" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="password" vertex="1">
+          <mxGeometry height="40" width="90" x="70" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="users_role" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="role" vertex="1">
+          <mxGeometry height="40" width="70" x="210" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="users_ev" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="email_verified_at" vertex="1">
+          <mxGeometry height="40" width="130" x="-50" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="users_rt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="remember_token" vertex="1">
+          <mxGeometry height="40" width="120" x="295" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="users_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="270" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ue1" edge="1" parent="1" source="users_pk" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue2" edge="1" parent="1" source="users_name" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue3" edge="1" parent="1" source="users_email" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue4" edge="1" parent="1" source="users_password" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue5" edge="1" parent="1" source="users_role" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue6" edge="1" parent="1" source="users_ev" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue7" edge="1" parent="1" source="users_rt" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue8" edge="1" parent="1" source="users_ts" style="endArrow=none;endFill=0;" target="users">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="kategori" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="KATEGORI_BARANGS" vertex="1">
+          <mxGeometry height="60" width="220" x="625" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="kategori_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration=underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="575" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="kategori_nama" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="nama" vertex="1">
+          <mxGeometry height="40" width="80" x="665" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="kategori_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="775" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ke1" edge="1" parent="1" source="kategori_pk" style="endArrow=none;endFill=0;" target="kategori">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ke2" edge="1" parent="1" source="kategori_nama" style="endArrow=none;endFill=0;" target="kategori">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ke3" edge="1" parent="1" source="kategori_ts" style="endArrow=none;endFill=0;" target="kategori">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="barang" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="BARANGS" vertex="1">
+          <mxGeometry height="80" width="200" x="640" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration=underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="610" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_kode" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="kode" vertex="1">
+          <mxGeometry height="40" width="80" x="650" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_nama" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="nama" vertex="1">
+          <mxGeometry height="40" width="80" x="765" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_kat" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="kategori_barang_id" vertex="1">
+          <mxGeometry height="40" width="140" x="490" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_stok" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="stok" vertex="1">
+          <mxGeometry height="40" width="70" x="550" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_rop" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="rop" vertex="1">
+          <mxGeometry height="40" width="70" x="670" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="barang_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="790" y="696.78" as="geometry" />
+        </mxCell>
+        <mxCell id="be1" edge="1" parent="1" source="barang_pk" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="be2" edge="1" parent="1" source="barang_kode" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="be3" edge="1" parent="1" source="barang_nama" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="be4" edge="1" parent="1" source="barang_kat" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="be5" edge="1" parent="1" source="barang_stok" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="be6" edge="1" parent="1" source="barang_rop" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="be7" edge="1" parent="1" source="barang_ts" style="endArrow=none;endFill=0;" target="barang">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_kat_barang" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="memiliki" vertex="1">
+          <mxGeometry height="60" width="100" x="690" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_kat_barang_e1" edge="1" parent="1" source="kategori" style="endArrow=none;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="rel_kat_barang" value="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="848.5185185185182" y="528.888888888889" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_kat_barang_e2" edge="1" parent="1" source="rel_kat_barang" style="endArrow=none;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="barang" value="M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="penjualan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="PENJUALANS" vertex="1">
+          <mxGeometry height="60" width="200" x="80" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="penjualan_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration:underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="-15" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="penjualan_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="user_id" vertex="1">
+          <mxGeometry height="40" width="80" x="70" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="penjualan_tgl" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="tanggal" vertex="1">
+          <mxGeometry height="40" width="80" x="200" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="penjualan_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="310" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="penje1" edge="1" parent="1" source="penjualan_pk" style="endArrow=none;endFill=0;" target="penjualan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="penje2" edge="1" parent="1" source="penjualan_user" style="endArrow=none;endFill=0;" target="penjualan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="penje3" edge="1" parent="1" source="penjualan_tgl" style="endArrow=none;endFill=0;" target="penjualan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="penje4" edge="1" parent="1" source="penjualan_ts" style="endArrow=none;endFill=0;" target="penjualan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="penjualan_detail" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="PENJUALAN_DETAILS" vertex="1">
+          <mxGeometry height="80" width="220" x="70" y="776.78" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration:underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="30" y="726.78" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_pj" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="penjualan_id" vertex="1">
+          <mxGeometry height="40" width="90" x="80" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_barang" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="barang_id" vertex="1">
+          <mxGeometry height="40" width="80" x="210" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_jumlah" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="jumlah" vertex="1">
+          <mxGeometry height="40" width="80" x="295" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_harga" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="harga" vertex="1">
+          <mxGeometry height="40" width="70" x="80" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="pd_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="-40" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="pde1" edge="1" parent="1" source="pd_pk" style="endArrow=none;endFill=0;" target="penjualan_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pde2" edge="1" parent="1" source="pd_pj" style="endArrow=none;endFill=0;" target="penjualan_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pde3" edge="1" parent="1" source="pd_barang" style="endArrow=none;endFill=0;" target="penjualan_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pde4" edge="1" parent="1" source="pd_jumlah" style="endArrow=none;endFill=0;" target="penjualan_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pde5" edge="1" parent="1" source="pd_harga" style="endArrow=none;endFill=0;" target="penjualan_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pde6" edge="1" parent="1" source="pd_ts" style="endArrow=none;endFill=0;" target="penjualan_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pj_pd" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="terdiri_dari" vertex="1">
+          <mxGeometry height="60" width="110" x="125" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pj_pd_e1" edge="1" parent="1" source="penjualan" style="endArrow=none;endFill=0;" target="rel_pj_pd" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pj_pd_e2" edge="1" parent="1" source="rel_pj_pd" style="endArrow=none;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="penjualan_detail" value="M">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="222.56281407035203" y="699.99608040201" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_brg_pd" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="dijual" vertex="1">
+          <mxGeometry height="60" width="100" x="360" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_brg_pd_e1" edge="1" parent="1" source="barang" style="endArrow=none;endFill=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="rel_brg_pd" value="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="805" y="820" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_brg_pd_e2" edge="1" parent="1" source="rel_brg_pd" style="endArrow=none;endFill=0;" target="penjualan_detail" value="M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="PEMBELIANS" vertex="1">
+          <mxGeometry height="100" width="200" x="1150" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration:underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="1095" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_user" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="user_id" vertex="1">
+          <mxGeometry height="40" width="80" x="1170" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_tgl" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="tanggal" vertex="1">
+          <mxGeometry height="40" width="80" x="1270" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="status" vertex="1">
+          <mxGeometry height="40" width="70" x="1051" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_appr" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="approved_at" vertex="1">
+          <mxGeometry height="40" width="90" x="1260" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_appr_by" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="approved_by" vertex="1">
+          <mxGeometry height="40" width="90" x="1385" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_notes" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="notes" vertex="1">
+          <mxGeometry height="40" width="70" x="1080" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_desc" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="deskripsi" vertex="1">
+          <mxGeometry height="40" width="80" x="1155" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_ket" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="keterangan" vertex="1">
+          <mxGeometry height="40" width="90" x="1295" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_file" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="file_path" vertex="1">
+          <mxGeometry height="40" width="80" x="1370" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="1380" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe1" edge="1" parent="1" source="pembelian_pk" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe2" edge="1" parent="1" source="pembelian_user" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe3" edge="1" parent="1" source="pembelian_tgl" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe4" edge="1" parent="1" source="pembelian_status" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe5" edge="1" parent="1" source="pembelian_appr" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe6" edge="1" parent="1" source="pembelian_appr_by" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe7" edge="1" parent="1" source="pembelian_notes" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe8" edge="1" parent="1" source="pembelian_desc" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe9" edge="1" parent="1" source="pembelian_ket" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe10" edge="1" parent="1" source="pembelian_file" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembe11" edge="1" parent="1" source="pembelian_ts" style="endArrow=none;endFill=0;" target="pembelian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pembelian_detail" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;" value="PEMBELIAN_DETAILS" vertex="1">
+          <mxGeometry height="80" width="220" x="1145" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="pbd_pk" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fontStyle=4;textDecoration:underline;" value="id" vertex="1">
+          <mxGeometry height="40" width="60" x="1105" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="pbd_pemb" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="pembelian_id" vertex="1">
+          <mxGeometry height="40" width="100" x="1140" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="pbd_barang" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="barang_id" vertex="1">
+          <mxGeometry height="40" width="80" x="1325" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="pbd_jumlah" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="jumlah" vertex="1">
+          <mxGeometry height="40" width="80" x="1395" y="736.78" as="geometry" />
+        </mxCell>
+        <mxCell id="pbd_harga" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="harga" vertex="1">
+          <mxGeometry height="40" width="70" x="1405" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="pbd_ts" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;" value="timestamps" vertex="1">
+          <mxGeometry height="40" width="90" x="1235" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="pbde1" edge="1" parent="1" source="pbd_pk" style="endArrow=none;endFill=0;" target="pembelian_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pbde2" edge="1" parent="1" source="pbd_pemb" style="endArrow=none;endFill=0;" target="pembelian_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pbde3" edge="1" parent="1" source="pbd_barang" style="endArrow=none;endFill=0;" target="pembelian_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pbde4" edge="1" parent="1" source="pbd_jumlah" style="endArrow=none;endFill=0;" target="pembelian_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pbde5" edge="1" parent="1" source="pbd_harga" style="endArrow=none;endFill=0;" target="pembelian_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pbde6" edge="1" parent="1" source="pbd_ts" style="endArrow=none;endFill=0;" target="pembelian_detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pem_pbd" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="terdiri_dari" vertex="1">
+          <mxGeometry height="60" width="110" x="1200" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pem_pbd_e1" edge="1" parent="1" source="pembelian" style="endArrow=none;endFill=0;" target="rel_pem_pbd" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_pem_pbd_e2" edge="1" parent="1" source="rel_pem_pbd" style="endArrow=none;endFill=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="pembelian_detail" value="M">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1317.562814070352" y="693.21608040201" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="rel_brg_pbd" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="dibeli" vertex="1">
+          <mxGeometry height="60" width="100" x="935" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_brg_pbd_e1" edge="1" parent="1" source="barang" style="endArrow=none;endFill=0;" target="rel_brg_pbd" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_brg_pbd_e2" edge="1" parent="1" source="rel_brg_pbd" style="endArrow=none;endFill=0;" target="pembelian_detail" value="M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_pj" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="membuat" vertex="1">
+          <mxGeometry height="60" width="100" x="130" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_pj_e1" edge="1" parent="1" source="users" style="endArrow=none;endFill=0;" target="rel_user_pj" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_pj_e2" edge="1" parent="1" source="rel_user_pj" style="endArrow=none;endFill=0;" target="penjualan" value="M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_pem" parent="1" style="rhombus;whiteSpace=wrap;html=1;fontSize=11;" value="membuat" vertex="1">
+          <mxGeometry height="60" width="100" x="630" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_pem_e1" edge="1" parent="1" source="users" style="endArrow=none;endFill=0;" target="rel_user_pem" value="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_user_pem_e2" edge="1" parent="1" source="rel_user_pem" style="endArrow=none;endFill=0;" target="pembelian" value="M">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
