@@ -17,21 +17,25 @@
                 <p class="text-gray-600 mt-1">Kelola seluruh item inventory di sistem</p>
             </div>
             <div class="flex items-center gap-3">
-                <form action="{{ route('barang.recalculate-rop.all') }}" method="POST" class="inline">
-                    @csrf
-                    <button type="submit"
-                        class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
-                        Perbarui ROP
-                    </button>
-                </form>
+                @can('admin')
+                    <form action="{{ route('barang.recalculate-rop.all') }}" method="POST" class="inline">
+                        @csrf
+                        <button type="submit"
+                            class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
+                            Perbarui ROP
+                        </button>
+                    </form>
+                @endcan
                 <a href="{{ route('barang.export.pdf') }}"
                     class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
                     Export PDF
                 </a>
-                <a href="{{ route('barang.create') }}"
-                    class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all">
-                    <i class="fas fa-plus mr-2"></i>Tambah Sparepart
-                </a>
+                @can('admin')
+                    <a href="{{ route('barang.create') }}"
+                        class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all">
+                        <i class="fas fa-plus mr-2"></i>Tambah Sparepart
+                    </a>
+                @endcan
             </div>
         </div>
 
@@ -88,26 +92,28 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
                                     <div class="flex justify-center gap-2">
-                                        <form action="{{ route('barang.recalculate-rop', $barang) }}" method="POST" class="inline">
-                                            @csrf
-                                            <button type="submit"
-                                                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-all text-xs font-semibold">
-                                                Perbarui ROP
-                                            </button>
-                                        </form>
-                                        <a href="{{ route('barang.edit', $barang) }}"
-                                            class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-all text-xs font-semibold">
-                                            <i class="fas fa-edit mr-1"></i>Edit
-                                        </a>
-                                        <form action="{{ route('barang.destroy', $barang) }}" method="POST" class="inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="px-3 py-1 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-all text-xs font-semibold"
-                                                onclick="return confirm('Yakin hapus data ini?')">
-                                                <i class="fas fa-trash mr-1"></i>Hapus
-                                            </button>
-                                        </form>
+                                        @can('admin')
+                                            <form action="{{ route('barang.recalculate-rop', $barang) }}" method="POST" class="inline">
+                                                @csrf
+                                                <button type="submit"
+                                                    class="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-all text-xs font-semibold">
+                                                    Perbarui ROP
+                                                </button>
+                                            </form>
+                                            <a href="{{ route('barang.edit', $barang) }}"
+                                                class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-all text-xs font-semibold">
+                                                <i class="fas fa-edit mr-1"></i>Edit
+                                            </a>
+                                            <form action="{{ route('barang.destroy', $barang) }}" method="POST" class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="px-3 py-1 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-all text-xs font-semibold"
+                                                    onclick="return confirm('Yakin hapus data ini?')">
+                                                    <i class="fas fa-trash mr-1"></i>Hapus
+                                                </button>
+                                            </form>
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>

@@ -24,15 +24,23 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Kategori Barang routes (protected by role middleware)
+    // Kategori Barang routes (read-only for manager)
     Route::resource('kategori-barang', KategoriBarangController::class)
+        ->only(['index', 'show'])
+        ->middleware('role:admin_sparepart,service_manager');
+    Route::resource('kategori-barang', KategoriBarangController::class)
+        ->except(['index', 'show'])
         ->middleware('role:admin_sparepart');
     Route::get('kategori-barang/export/pdf', [KategoriBarangController::class, 'exportPdf'])
         ->name('kategori-barang.export.pdf')
-        ->middleware('role:admin_sparepart');
+        ->middleware('role:admin_sparepart,service_manager');
 
-    // Barang routes (protected by role middleware)
+    // Barang routes (read-only for manager)
     Route::resource('barang', BarangController::class)
+        ->only(['index', 'show'])
+        ->middleware('role:admin_sparepart,service_manager');
+    Route::resource('barang', BarangController::class)
+        ->except(['index', 'show'])
         ->middleware('role:admin_sparepart');
     Route::post('barang/recalculate-rop', [BarangController::class, 'recalculateRopAll'])
         ->name('barang.recalculate-rop.all')
@@ -42,7 +50,7 @@ Route::middleware('auth')->group(function () {
         ->middleware('role:admin_sparepart');
     Route::get('barang/export/pdf', [BarangController::class, 'exportPdf'])
         ->name('barang.export.pdf')
-        ->middleware('role:admin_sparepart');
+        ->middleware('role:admin_sparepart,service_manager');
 
     // Penjualan routes (for admin and manager)
     Route::resource('penjualan', PenjualanController::class)

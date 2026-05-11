@@ -16,10 +16,12 @@
                     class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
                     Export PDF
                 </a>
-                <a href="{{ route('kategori-barang.create') }}"
-                    class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all">
-                    <i class="fas fa-plus mr-2"></i>Tambah Kategori
-                </a>
+                @can('admin')
+                    <a href="{{ route('kategori-barang.create') }}"
+                        class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all">
+                        <i class="fas fa-plus mr-2"></i>Tambah Kategori
+                    </a>
+                @endcan
             </div>
         </div>
 
@@ -45,22 +47,24 @@
                                     {{ $kategori->nama }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-center">
-                                    <div class="flex justify-center gap-2">
-                                        <a href="{{ route('kategori-barang.edit', $kategori) }}"
-                                            class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-all text-xs font-semibold">
-                                            <i class="fas fa-edit mr-1"></i>Edit
-                                        </a>
-                                        <form action="{{ route('kategori-barang.destroy', $kategori) }}" method="POST"
-                                            class="inline">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="px-3 py-1 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-all text-xs font-semibold"
-                                                onclick="return confirm('Yakin hapus data ini?')">
-                                                <i class="fas fa-trash mr-1"></i>Hapus
-                                            </button>
-                                        </form>
-                                    </div>
+                                    @can('admin')
+                                        <div class="flex justify-center gap-2">
+                                            <a href="{{ route('kategori-barang.edit', $kategori) }}"
+                                                class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-all text-xs font-semibold">
+                                                <i class="fas fa-edit mr-1"></i>Edit
+                                            </a>
+                                            <form action="{{ route('kategori-barang.destroy', $kategori) }}" method="POST"
+                                                class="inline">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="px-3 py-1 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-all text-xs font-semibold"
+                                                    onclick="return confirm('Yakin hapus data ini?')">
+                                                    <i class="fas fa-trash mr-1"></i>Hapus
+                                                </button>
+                                            </form>
+                                        </div>
+                                    @endcan
                                 </td>
                             </tr>
                         @empty
