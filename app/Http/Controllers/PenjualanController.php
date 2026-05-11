@@ -8,6 +8,7 @@ use App\Models\Barang;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PenjualanController extends Controller
 {
@@ -109,5 +110,16 @@ class PenjualanController extends Controller
         }
         $penjualan->delete();
         return redirect()->route('penjualan.index')->with('success', 'Penjualan berhasil dihapus');
+    }
+
+    public function exportPdf()
+    {
+        $penjualans = Penjualan::with(['user', 'details.barang'])->orderByDesc('tanggal')->get();
+        $generatedAt = now()->format('d/m/Y H:i');
+
+        $pdf = Pdf::loadView('exports.penjualan', compact('penjualans', 'generatedAt'))
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('penjualan-' . now()->format('Ymd_His') . '.pdf');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class UserController extends Controller
 {
@@ -83,5 +84,16 @@ class UserController extends Controller
 
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User berhasil dihapus');
+    }
+
+    public function exportPdf()
+    {
+        $users = User::orderBy('created_at', 'desc')->get();
+        $generatedAt = now()->format('d/m/Y H:i');
+
+        $pdf = Pdf::loadView('exports.users', compact('users', 'generatedAt'))
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('users-' . now()->format('Ymd_His') . '.pdf');
     }
 }

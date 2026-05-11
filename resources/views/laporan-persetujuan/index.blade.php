@@ -12,11 +12,15 @@
             </div>
         @endif
 
-        <div class="mb-8" data-aos="fade-down">
+        <div class="flex justify-between items-center mb-8" data-aos="fade-down">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800">Laporan Persetujuan Pembelian</h1>
                 <p class="text-gray-600 mt-1">Kelola dan pantau semua transaksi pembelian untuk persetujuan</p>
             </div>
+            <a href="{{ route('laporan-persetujuan.export.pdf') }}"
+                class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
+                Export PDF
+            </a>
         </div>
 
         <!-- Statistics Cards -->

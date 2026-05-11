@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pembelian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class LaporanPersetujuanController extends Controller
 {
@@ -54,5 +55,27 @@ class LaporanPersetujuanController extends Controller
 
         return redirect()->route('laporan-persetujuan.index')
             ->with('success', 'Status pembelian berhasil diperbarui menjadi ' . $request->status);
+    }
+
+    public function exportPdf()
+    {
+        $pembelians = Pembelian::with(['user', 'details.barang'])
+            ->orderBy('tanggal', 'desc')
+            ->get();
+        $totalPembelian = Pembelian::count();
+        $totalItemPembelian = Pembelian::join('pembelian_details', 'pembelians.id', '=', 'pembelian_details.pembelian_id')
+            ->sum('pembelian_details.jumlah');
+        $pendingPembelian = Pembelian::where('status', 'pending')->count();
+        $generatedAt = now()->format('d/m/Y H:i');
+
+        $pdf = Pdf::loadView('exports.laporan-persetujuan', compact(
+            'pembelians',
+            'totalPembelian',
+            'totalItemPembelian',
+            'pendingPembelian',
+            'generatedAt'
+        ))->setPaper('a4', 'portrait');
+
+        return $pdf->download('laporan-persetujuan-' . now()->format('Ymd_His') . '.pdf');
     }
 }

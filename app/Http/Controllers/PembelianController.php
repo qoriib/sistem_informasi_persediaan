@@ -7,6 +7,7 @@ use App\Models\Pembelian;
 use App\Models\Barang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PembelianController extends Controller
 {
@@ -142,5 +143,16 @@ class PembelianController extends Controller
         }
         $pembelian->delete();
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil dihapus');
+    }
+
+    public function exportPdf()
+    {
+        $pembelians = Pembelian::with(['user', 'details.barang'])->orderByDesc('tanggal')->get();
+        $generatedAt = now()->format('d/m/Y H:i');
+
+        $pdf = Pdf::loadView('exports.pembelian', compact('pembelians', 'generatedAt'))
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('pembelian-' . now()->format('Ymd_His') . '.pdf');
     }
 }

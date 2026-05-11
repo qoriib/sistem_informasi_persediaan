@@ -27,22 +27,37 @@ Route::middleware('auth')->group(function () {
     // Kategori Barang routes (protected by role middleware)
     Route::resource('kategori-barang', KategoriBarangController::class)
         ->middleware('role:admin_sparepart');
+    Route::get('kategori-barang/export/pdf', [KategoriBarangController::class, 'exportPdf'])
+        ->name('kategori-barang.export.pdf')
+        ->middleware('role:admin_sparepart');
 
     // Barang routes (protected by role middleware)
     Route::resource('barang', BarangController::class)
+        ->middleware('role:admin_sparepart');
+    Route::get('barang/export/pdf', [BarangController::class, 'exportPdf'])
+        ->name('barang.export.pdf')
         ->middleware('role:admin_sparepart');
 
     // Penjualan routes (for admin and manager)
     Route::resource('penjualan', PenjualanController::class)
         ->middleware('role:admin_sparepart,service_manager');
+    Route::get('penjualan/export/pdf', [PenjualanController::class, 'exportPdf'])
+        ->name('penjualan.export.pdf')
+        ->middleware('role:admin_sparepart,service_manager');
 
     // Pembelian routes (for admin only, manager can view list)
     Route::resource('pembelian', PembelianController::class)
         ->middleware('role:admin_sparepart, service_manager');
+    Route::get('pembelian/export/pdf', [PembelianController::class, 'exportPdf'])
+        ->name('pembelian.export.pdf')
+        ->middleware('role:admin_sparepart,service_manager');
 
     // Laporan Persetujuan routes (for manager)
     Route::get('/laporan-persetujuan', [LaporanPersetujuanController::class, 'index'])
         ->name('laporan-persetujuan.index')
+        ->middleware('role:admin_sparepart,service_manager');
+    Route::get('/laporan-persetujuan/export/pdf', [LaporanPersetujuanController::class, 'exportPdf'])
+        ->name('laporan-persetujuan.export.pdf')
         ->middleware('role:admin_sparepart,service_manager');
 
     Route::post('/laporan-persetujuan/{pembelian}/approve', [LaporanPersetujuanController::class, 'approve'])
@@ -51,6 +66,7 @@ Route::middleware('auth')->group(function () {
 
     // User Management routes (admin only)
     Route::resource('user', UserController::class);
+    Route::get('user/export/pdf', [UserController::class, 'exportPdf'])->name('user.export.pdf');
 
     // API routes for AJAX
     Route::get('/api/pembelian/{id}', [LaporanPersetujuanController::class, 'getData']);

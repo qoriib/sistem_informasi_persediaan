@@ -11,10 +11,16 @@
                 <h1 class="text-3xl font-bold text-gray-800">Data Sparepart</h1>
                 <p class="text-gray-600 mt-1">Kelola seluruh item inventory di sistem</p>
             </div>
-            <a href="{{ route('barang.create') }}"
-                class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all">
-                <i class="fas fa-plus mr-2"></i>Tambah Sparepart
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="{{ route('barang.export.pdf') }}"
+                    class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
+                    Export PDF
+                </a>
+                <a href="{{ route('barang.create') }}"
+                    class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all">
+                    <i class="fas fa-plus mr-2"></i>Tambah Sparepart
+                </a>
+            </div>
         </div>
 
         <div class="bg-white shadow-lg rounded-lg overflow-hidden" data-aos="fade-up">

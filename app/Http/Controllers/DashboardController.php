@@ -20,4 +20,5 @@ class DashboardController extends Controller
         $topBarangStok = $topBarang->pluck('stok');
         return view('dashboard', compact('totalBarang', 'totalPenjualan', 'totalPembelian', 'barangHabis', 'topBarangLabels', 'topBarangStok'));
     }
+
 }

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\KategoriBarang;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class BarangController extends Controller
 {
@@ -55,5 +56,16 @@ class BarangController extends Controller
         $barang = Barang::findOrFail($id);
         $barang->delete();
         return redirect()->route('barang.index')->with('success', 'Barang berhasil dihapus');
+    }
+
+    public function exportPdf()
+    {
+        $barangs = Barang::with('kategori')->orderBy('nama')->get();
+        $generatedAt = now()->format('d/m/Y H:i');
+
+        $pdf = Pdf::loadView('exports.barang', compact('barangs', 'generatedAt'))
+            ->setPaper('a4', 'portrait');
+
+        return $pdf->download('sparepart-' . now()->format('Ymd_His') . '.pdf');
     }
 }
