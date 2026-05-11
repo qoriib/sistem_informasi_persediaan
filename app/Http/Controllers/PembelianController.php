@@ -51,6 +51,7 @@ class PembelianController extends Controller
             'keterangan' => $request->keterangan,
             'file_path' => $filePath,
         ]);
+        $affectedBarangIds = [];
         foreach ($request->barang_id as $i => $barangId) {
             $barang = Barang::findOrFail($barangId);
             $qty = $jumlahArr[$i];
@@ -61,7 +62,13 @@ class PembelianController extends Controller
                 'harga' => $harga,
             ]);
             $barang->increment('stok', $qty);
+            $affectedBarangIds[] = $barangId;
         }
+
+        Barang::whereIn('id', array_unique($affectedBarangIds))
+            ->get()
+            ->each
+            ->recalculateRop();
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil ditambahkan');
     }
     public function show($id)
@@ -90,6 +97,7 @@ class PembelianController extends Controller
         ]);
 
         $pembelian = Pembelian::with(['details'])->findOrFail($id);
+        $affectedBarangIds = $pembelian->details->pluck('barang_id')->all();
 
         $filePath = $pembelian->file_path;
         if ($request->hasFile('file')) {
@@ -130,18 +138,32 @@ class PembelianController extends Controller
                 'harga' => $harga,
             ]);
             $barang->increment('stok', $qty);
+            $affectedBarangIds[] = $barangId;
         }
+
+        Barang::whereIn('id', array_unique($affectedBarangIds))
+            ->get()
+            ->each
+            ->recalculateRop();
 
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil diperbarui');
     }
     public function destroy($id)
     {
 
-        $pembelian = Pembelian::findOrFail($id);
+        $pembelian = Pembelian::with('details')->findOrFail($id);
+        $affectedBarangIds = $pembelian->details->pluck('barang_id')->all();
         foreach ($pembelian->details as $detail) {
             $detail->barang->decrement('stok', $detail->jumlah);
         }
         $pembelian->delete();
+
+        if (!empty($affectedBarangIds)) {
+            Barang::whereIn('id', array_unique($affectedBarangIds))
+                ->get()
+                ->each
+                ->recalculateRop();
+        }
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil dihapus');
     }
 

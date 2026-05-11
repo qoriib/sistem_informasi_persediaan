@@ -58,6 +58,22 @@ class BarangController extends Controller
         return redirect()->route('barang.index')->with('success', 'Barang berhasil dihapus');
     }
 
+    public function recalculateRop(Barang $barang)
+    {
+        $barang->recalculateRop();
+        return back()->with('success', 'ROP berhasil dihitung ulang untuk ' . $barang->nama);
+    }
+
+    public function recalculateRopAll()
+    {
+        Barang::with([
+            'penjualanDetails.penjualan:id,tanggal',
+            'pembelianDetails.pembelian:id,tanggal'
+        ])->get()->each->recalculateRop();
+
+        return back()->with('success', 'ROP berhasil dihitung ulang untuk semua barang');
+    }
+
     public function exportPdf()
     {
         $barangs = Barang::with('kategori')->orderBy('nama')->get();

@@ -34,6 +34,12 @@ Route::middleware('auth')->group(function () {
     // Barang routes (protected by role middleware)
     Route::resource('barang', BarangController::class)
         ->middleware('role:admin_sparepart');
+    Route::post('barang/recalculate-rop', [BarangController::class, 'recalculateRopAll'])
+        ->name('barang.recalculate-rop.all')
+        ->middleware('role:admin_sparepart');
+    Route::post('barang/{barang}/recalculate-rop', [BarangController::class, 'recalculateRop'])
+        ->name('barang.recalculate-rop')
+        ->middleware('role:admin_sparepart');
     Route::get('barang/export/pdf', [BarangController::class, 'exportPdf'])
         ->name('barang.export.pdf')
         ->middleware('role:admin_sparepart');

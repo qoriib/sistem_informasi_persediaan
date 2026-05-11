@@ -6,12 +6,24 @@
             <p class="text-lg text-gray-700"><span class="font-semibold text-indigo-700">Welcome,</span>
                 {{ Auth::user()->name }}! 👋</p>
         </div>
+        @if (session('success'))
+            <div class="mb-6 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded" data-aos="fade-down">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="flex justify-between items-center mb-8" data-aos="fade-down">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800">Data Sparepart</h1>
                 <p class="text-gray-600 mt-1">Kelola seluruh item inventory di sistem</p>
             </div>
             <div class="flex items-center gap-3">
+                <form action="{{ route('barang.recalculate-rop.all') }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit"
+                        class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
+                        Perbarui ROP
+                    </button>
+                </form>
                 <a href="{{ route('barang.export.pdf') }}"
                     class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
                     Export PDF
@@ -76,6 +88,13 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-center">
                                     <div class="flex justify-center gap-2">
+                                        <form action="{{ route('barang.recalculate-rop', $barang) }}" method="POST" class="inline">
+                                            @csrf
+                                            <button type="submit"
+                                                class="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-all text-xs font-semibold">
+                                                Perbarui ROP
+                                            </button>
+                                        </form>
                                         <a href="{{ route('barang.edit', $barang) }}"
                                             class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-lg hover:bg-indigo-200 transition-all text-xs font-semibold">
                                             <i class="fas fa-edit mr-1"></i>Edit
