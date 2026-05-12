@@ -22,7 +22,7 @@
                         @error('nama')<span class="text-red-500 text-sm mt-1">{{ $message }}</span>@enderror
                     </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-gray-700 font-semibold mb-2">Kategori</label>
                         <select name="kategori_barang_id"
@@ -41,13 +41,6 @@
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
                             required min="0">
                         @error('stok')<span class="text-red-500 text-sm mt-1">{{ $message }}</span>@enderror
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-2">ROP</label>
-                        <input type="number" name="rop" value="{{ $barang->rop }}"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-                            required min="0">
-                        @error('rop')<span class="text-red-500 text-sm mt-1">{{ $message }}</span>@enderror
                     </div>
                 </div>
                 <div class="flex justify-end gap-2 mt-8 pt-6 border-t">

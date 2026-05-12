@@ -27,9 +27,8 @@ class BarangController extends Controller
             'nama' => 'required|string|max:255',
             'kategori_barang_id' => 'required|exists:kategori_barangs,id',
             'stok' => 'required|integer|min:0',
-            'rop' => 'required|integer|min:0',
         ]);
-        Barang::create($request->only('kode', 'nama', 'kategori_barang_id', 'stok', 'rop'));
+        Barang::create($request->only('kode', 'nama', 'kategori_barang_id', 'stok'));
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan');
     }
     public function edit($id)
@@ -46,9 +45,8 @@ class BarangController extends Controller
             'nama' => 'required|string|max:255',
             'kategori_barang_id' => 'required|exists:kategori_barangs,id',
             'stok' => 'required|integer|min:0',
-            'rop' => 'required|integer|min:0',
         ]);
-        $barang->update($request->only('kode', 'nama', 'kategori_barang_id', 'stok', 'rop'));
+        $barang->update($request->only('kode', 'nama', 'kategori_barang_id', 'stok'));
         return redirect()->route('barang.index')->with('success', 'Barang berhasil diupdate');
     }
     public function destroy($id)
