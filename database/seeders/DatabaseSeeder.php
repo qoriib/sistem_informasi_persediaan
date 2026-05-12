@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Barang;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,5 +23,9 @@ class DatabaseSeeder extends Seeder
             PenjualanSeeder::class,
             PembelianSeeder::class,
         ]);
+
+        Barang::query()->each(function (Barang $barang) {
+            $barang->recalculateRop();
+        });
     }
 }

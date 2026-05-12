@@ -22,7 +22,7 @@
                         @csrf
                         <button type="submit"
                             class="px-4 py-2 border border-indigo-300 text-indigo-700 rounded-lg hover:bg-indigo-50 transition-all">
-                            Perbarui ROP
+                            Hitung ROP
                         </button>
                     </form>
                 @endcan
@@ -97,7 +97,7 @@
                                                 @csrf
                                                 <button type="submit"
                                                     class="px-3 py-1 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-all text-xs font-semibold">
-                                                    Perbarui ROP
+                                                    Hitung ROP
                                                 </button>
                                             </form>
                                             <a href="{{ route('barang.edit', $barang) }}"
