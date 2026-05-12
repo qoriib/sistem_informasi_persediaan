@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
 
     // Kategori Barang routes (read-only for manager)
     Route::resource('kategori-barang', KategoriBarangController::class)
-        ->only(['index', 'show'])
+        ->only(['index'])
         ->middleware('role:admin_sparepart,service_manager');
     Route::resource('kategori-barang', KategoriBarangController::class)
         ->except(['index', 'show'])
@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
     // Barang routes (read-only for manager)
     Route::resource('barang', BarangController::class)
-        ->only(['index', 'show'])
+        ->only(['index'])
         ->middleware('role:admin_sparepart,service_manager');
     Route::resource('barang', BarangController::class)
         ->except(['index', 'show'])
