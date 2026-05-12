@@ -16,7 +16,9 @@ return new class extends Migration {
         Schema::create('pembelian_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pembelian_id')->constrained('pembelians')->onDelete('cascade');
-            $table->foreignId('barang_id')->constrained('barangs');
+            $table->foreignId('barang_id')
+                ->constrained('barangs')
+                ->onDelete('cascade');
             $table->integer('jumlah');
             $table->integer('harga');
             $table->timestamps();

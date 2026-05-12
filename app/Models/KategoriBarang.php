@@ -9,4 +9,9 @@ class KategoriBarang extends Model
 {
     use HasFactory;
     protected $fillable = ['nama'];
+
+    public function barangs()
+    {
+        return $this->hasMany(Barang::class, 'kategori_barang_id');
+    }
 }

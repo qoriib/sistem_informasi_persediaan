@@ -11,7 +11,9 @@ return new class extends Migration {
             $table->id();
             $table->string('kode')->unique();
             $table->string('nama');
-            $table->foreignId('kategori_barang_id')->constrained('kategori_barangs');
+            $table->foreignId('kategori_barang_id')
+                ->constrained('kategori_barangs')
+                ->onDelete('cascade');
             $table->integer('stok')->default(0);
             $table->integer('rop')->default(0); // reorder point
             $table->timestamps();
