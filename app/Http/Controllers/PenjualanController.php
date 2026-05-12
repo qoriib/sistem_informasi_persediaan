@@ -52,10 +52,6 @@ class PenjualanController extends Controller
             $affectedBarangIds[] = $barangId;
         }
 
-        Barang::whereIn('id', array_unique($affectedBarangIds))
-            ->get()
-            ->each
-            ->recalculateRop();
         return redirect()->route('penjualan.index')->with('success', 'Penjualan berhasil ditambahkan');
     }
     public function show($id)
@@ -106,31 +102,18 @@ class PenjualanController extends Controller
                 'harga' => $harga,
             ]);
             $barang->decrement('stok', $qty);
-            $affectedBarangIds[] = $barangId;
         }
-
-        Barang::whereIn('id', array_unique($affectedBarangIds))
-            ->get()
-            ->each
-            ->recalculateRop();
 
         return redirect()->route('penjualan.index')->with('success', 'Penjualan berhasil diperbarui');
     }
     public function destroy($id)
     {
         $penjualan = Penjualan::with('details')->findOrFail($id);
-        $affectedBarangIds = $penjualan->details->pluck('barang_id')->all();
         foreach ($penjualan->details as $detail) {
             $detail->barang->increment('stok', $detail->jumlah);
         }
         $penjualan->delete();
 
-        if (!empty($affectedBarangIds)) {
-            Barang::whereIn('id', array_unique($affectedBarangIds))
-                ->get()
-                ->each
-                ->recalculateRop();
-        }
         return redirect()->route('penjualan.index')->with('success', 'Penjualan berhasil dihapus');
     }
 

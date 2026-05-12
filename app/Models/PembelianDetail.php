@@ -9,6 +9,16 @@ class PembelianDetail extends Model
 {
     use HasFactory;
     protected $fillable = ['pembelian_id', 'barang_id', 'jumlah', 'harga'];
+    
+    protected static function booted()
+    {
+        static::saved(function ($detail) {
+            $detail->barang->recalculateRop();
+        });
+        static::deleted(function ($detail) {
+            $detail->barang->recalculateRop();
+        });
+    }
 
     public function pembelian()
     {

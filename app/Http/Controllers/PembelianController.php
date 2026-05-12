@@ -65,10 +65,6 @@ class PembelianController extends Controller
             $affectedBarangIds[] = $barangId;
         }
 
-        Barang::whereIn('id', array_unique($affectedBarangIds))
-            ->get()
-            ->each
-            ->recalculateRop();
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil ditambahkan');
     }
     public function show($id)
@@ -138,13 +134,7 @@ class PembelianController extends Controller
                 'harga' => $harga,
             ]);
             $barang->increment('stok', $qty);
-            $affectedBarangIds[] = $barangId;
         }
-
-        Barang::whereIn('id', array_unique($affectedBarangIds))
-            ->get()
-            ->each
-            ->recalculateRop();
 
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil diperbarui');
     }
@@ -158,12 +148,6 @@ class PembelianController extends Controller
         }
         $pembelian->delete();
 
-        if (!empty($affectedBarangIds)) {
-            Barang::whereIn('id', array_unique($affectedBarangIds))
-                ->get()
-                ->each
-                ->recalculateRop();
-        }
         return redirect()->route('pembelian.index')->with('success', 'Pembelian berhasil dihapus');
     }
 

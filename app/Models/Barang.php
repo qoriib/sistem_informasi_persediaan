@@ -10,6 +10,17 @@ class Barang extends Model
 {
     use HasFactory;
     protected $fillable = ['kode', 'nama', 'kategori_barang_id', 'stok', 'rop'];
+    
+    protected static function booted()
+    {
+        static::saving(function ($barang) {
+            if ($barang->isDirty('stok')) {
+                $components = $barang->ropComponents();
+                $rop = ($components['usage'] * $components['lead_time']) + $components['safety_stock'];
+                $barang->rop = (int) ceil($rop);
+            }
+        });
+    }
 
     public function kategori()
     {
